@@ -36,4 +36,5 @@ mkinitcpio -p linux-lts
 
 #Exports
 #export VISUAL=nano
+systemctl enable lighdm.service
 
