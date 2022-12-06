@@ -1,3 +1,7 @@
+#!bin/bash
+echo What is your root password
+read rootpassword
+
 #locale and time
 ln -sf /usr/share/zoneinfo/Europe/Oslo /etc/localtime
 hwclock --systohc
@@ -21,6 +25,7 @@ echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:$rootpassword | chpasswd
 useradd -m -G wheel -s /bin/zsh morten
 echo morten:$rootpassword | chpasswd
+sed -i 's/^#\s*\(%wheel\s*ALL=(ALL)\s*NOPASSWD:\s*ALL\)/\1/' /etc/sudoers
 
 #Exports
 #export VISUAL=nano
