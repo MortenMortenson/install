@@ -5,14 +5,14 @@ read rootpassword
 #locale and time
 ln -sf /usr/share/zoneinfo/Europe/Oslo /etc/localtime
 hwclock --systohc
-sed 's/#en_US.UTF-8/en_US.UTF8/g' /etc/locale.gen
+sed -i 's/#en_US.UTF-8/en_US.UTF8/g' /etc/locale.gen
 locale-gen
 echo LANG=en_US.UTF-8 >> /etc/locale.conf
 echo "KEYMAP=no-latin1" >> /etc/vconsole.conf
 
 #Mirrors and pacman
 reflector --country NO --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-sed 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
+sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
 pacman -Syy
 pacman -S grub efibootmgr linux-lts
 
