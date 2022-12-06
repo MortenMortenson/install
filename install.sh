@@ -6,8 +6,6 @@ echo Whats the name of the root disk
 read rootdisk
 echo Whats the name of the boot disk
 read bootdisk
-echo What is your root password
-read rootpassword
 
 mount /dev/$rootdisk /mnt
 cd /mnt
