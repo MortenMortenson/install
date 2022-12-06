@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+
+PKGS=(
+
+    # SYSTEM --------------------------------------------------------------
+
+    'linux-lts'             # Long term support kernel
+    'linux'
+    'linux-headers'
+    'linux-lts-headers'
+    'linux-firmware'
+    'base-devel'
+    'reflector'
+    'efibootmgr'
+    'grub'
+    'os-prober'
+    'grub-btrfs'
+    'btrfs-progs'
+    'dosftools'
+    'mtools'
+    'ntfs-3g'
+    'intel-ucode'
+    'base-devel'
+
+    # Network --------------------------------------------------------------
+     'networkmanager'
+     'network-manager-applet'
+     'dialog'
+     'reflector'
+     'openssh'
+     'wireless-tools'
+     
+    # Graphic --------------------------------------------------------------
+     'nvidia'
+     'nvidia-lts'
+     'nvidia-utils'
+     'nvidia-settings'
+     
+    # Interface --------------------------------------------------------------
+      'i3-wm'
+      'lightdm-gtk-greeter'
+      'xdg-utils'
+      'xdg-user-dirs'
+      'xorg-server'
+      'xorg-apps'
+      'rofi'
+      
+    # Audio --------------------------------------------------------------
+     'alsa-utils'
+     'pipewire'
+     'pipewire-alsa'
+     'pipewire-pulse'
+     'pipewire-jack'
+     'bluez'
+     'bluez-utils'
+   
+   
+    # TERMINAL UTILITIES --------------------------------------------------
+     'alacritty '              # Terminal emulator
+    'vim'                     # Terminal Editor
+    'zsh'                     # Interactive shell
+    'zsh-autosuggestions'     # Zsh Plugin
+    'zsh-syntax-highlighting' # Zsh Plugin
+    'man-db'
+    'man'
+    
+
+    # GENERAL UTILITIES ---------------------------------------------------
+
+    'thunar  '              # Filesystem browser
+
+
+    # MEDIA ---------------------------------------------------------------
+
+    'mpv'                   # Video player
+    'feh'                   # Image viewer
+    'python-pywal'          # Wallpaper utility
+    'cups'
+
+)
+
+for PKG in "${PKGS[@]}"; do
+    echo "INSTALLING: ${PKG}"
+    sudo pacman -S "$PKG" --noconfirm --needed
+done
+
+services=(
+        NetworkManager.service
+        lightdm.service
+        fstrim.timer
+        cups.service
+        bluetooth
+        reflector.timer 
+        snapper-timeline.timer 
+        snapper-cleanup.timer 
+        grub-btrfs.path 
+        
+)
+for service in "${services[@]}"; do
+    systemctl enable "$service" 
+done
+
+echo
+echo "Done!"
+echo
