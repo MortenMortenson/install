@@ -14,7 +14,7 @@ echo "KEYMAP=no-latin1" >> /etc/vconsole.conf
 reflector --country NO --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
 pacman -Syy
-pacman -S grub efibootmgr linux-lts
+pacman -S grub efibootmgr linux-lts base-devel btrfs-progs lightdm-gtk-greeter i3-wm alacritty networkmanager network-manager-applet
 
 #Hostname
 echo "arch" >> /etc/hostname
