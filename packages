@@ -5,79 +5,76 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
 
-    'linux-lts'             # Long term support kernel
-    'linux'
-    'linux-headers'
-    'linux-lts-headers'
-    'linux-firmware'
-    'base-devel'
-    'reflector'
-    'efibootmgr'
-    'grub'
-    'os-prober'
-    'grub-btrfs'
-    'btrfs-progs'
-    'dosftools'
-    'mtools'
-    'ntfs-3g'
-    'intel-ucode'
-    'base-devel'
+    	'linux-lts'             # Long term support kernel
+    	'linux'			# Regular kernel
+    	'linux-headers'		# Header for regular kernel
+    	'linux-lts-headers'	# Headers for LTS kernel
+    	'linux-firmware'	# Kernel firmware
+    	'base-devel'		# Additional devel tools
+    	'reflector'		# Pacman mirrorlist 
+    	'efibootmgr'
+    	'grub'			# Bootloader
+    	'os-prober'
+    	'grub-btrfs'
+    	'btrfs-progs'
+    	'dosftools'
+    	'mtools'
+    	'ntfs-3g'
+    	'intel-ucode'		# Intel processor microcode
 
     # Network --------------------------------------------------------------
-     'networkmanager'
-     'network-manager-applet'
-     'dialog'
-     'reflector'
-     'openssh'
-     'wireless-tools'
+     	'networkmanager'
+     	'network-manager-applet'
+     	'dialog'
+     	'reflector'
+     	'openssh'
+     	'wireless-tools'
      
     # Graphic --------------------------------------------------------------
-     'nvidia'
-     'nvidia-lts'
-     'nvidia-utils'
-     'nvidia-settings'
+     	'nvidia'
+     	'nvidia-lts'
+     	'nvidia-settings'
      
     # Interface --------------------------------------------------------------
-      'i3-wm'
-      'lightdm-gtk-greeter'
-      'xdg-utils'
-      'xdg-user-dirs'
-      'xorg-server'
-      'xorg-apps'
-      'rofi'
+      	'i3-gaps'
+      	'lightdm-gtk-greeter'
+      	'xdg-utils'
+      	'xdg-user-dirs'
+      	'xorg-server'
+      	'xorg-apps'
+      	'rofi'
       
     # Audio --------------------------------------------------------------
-     'alsa-utils'
-     'pipewire'
-     'pipewire-alsa'
-     'pipewire-pulse'
-     'pipewire-jack'
-     'bluez'
-     'bluez-utils'
+    	'alsa-utils'
+     	'pipewire'
+     	'pipewire-alsa'
+     	'pipewire-pulse'
+     	'pipewire-jack'
+	'pamixer'		# Audio mixer
+     	'bluez'
+     	'bluez-utils'
    
    
     # TERMINAL UTILITIES --------------------------------------------------
-     'alacritty '              # Terminal emulator
-    'vim'                     # Terminal Editor
-    'zsh'                     # Interactive shell
-    'zsh-autosuggestions'     # Zsh Plugin
-    'zsh-syntax-highlighting' # Zsh Plugin
-    'man-db'
-    'man'
-    
+	'alacritty'            	# Terminal emulator
+        'vim'                   # Terminal Editor
+        'zsh'                   # Interactive shell
+        'man-db'			
+        'man'			# man-pages
+        'exa'			# ls substitute
+        'bat'			# bat substitute 
+	'bpytop'		# Resource monitor
 
     # GENERAL UTILITIES ---------------------------------------------------
-
-    'thunar  '              # Filesystem browser
+	'thunar'		#Filesystem browser
 
 
     # MEDIA ---------------------------------------------------------------
-
-    'mpv'                   # Video player
-    'feh'                   # Image viewer
-    'python-pywal'          # Wallpaper utility
-    'cups'
-
+    	'mpv'                   # Video player
+    	'feh'                   # Image viewer
+    	'python-pywal'          # Wallpaper utility
+    	'cups'			# Printin service
+	'nitrogen'		# GTK wallpaper chooser
 )
 
 for PKG in "${PKGS[@]}"; do
